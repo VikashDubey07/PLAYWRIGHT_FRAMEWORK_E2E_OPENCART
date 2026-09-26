@@ -2,7 +2,7 @@
 import {test, expect} from '../src/fixtures/PageFixtures';
 
 
-//writing repated steps here so it will run before every test
+//writing repated steps here so it will run before every tests
 test.beforeEach(async({loginPage})=>{
     await loginPage.goToLoginPage();
     await loginPage.doLogin("abc1@gamil.com","Xyz@123")
