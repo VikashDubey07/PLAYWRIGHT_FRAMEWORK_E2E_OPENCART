@@ -8,7 +8,7 @@ on:
   #   branches: [master] #provide the Exact branch name where you are pushing your code
   # pull_request:
   #   branches: [master] 
-  Workflow_dispatch:
+  workflow_dispatch:
     inputs:
       environment:
         description: 'Select Enviriment to Run the Test'
@@ -16,8 +16,8 @@ on:
         default: 'QA'
         type : choice
         options:
-          -QA
-          -stage
+          - QA
+          - stage
 
 jobs:
   playwright:
