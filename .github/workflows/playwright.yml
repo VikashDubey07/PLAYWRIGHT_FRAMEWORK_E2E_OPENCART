@@ -2,7 +2,7 @@ name: Playwright Tests
 
 on:
   schedule:
-    -cron: '30 21 * * 1-4' # Cron Jobs that we have set so our autmation will trigger at this time on GitHub Actions
+    - cron: '30 21 * * 1-4' # Cron Jobs that we have set so our autmation will trigger at this time on GitHub Actions
 
   # push:   # As soon as we push code the it will start executing our Autmation as GitHub WorkFlows in GitHub Actions
   #   branches: [master] #provide the Exact branch name where you are pushing your code
