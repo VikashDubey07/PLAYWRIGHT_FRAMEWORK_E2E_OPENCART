@@ -78,6 +78,11 @@ jobs:
         with:
           repository: VikashDubey07/PLAYWRIGHT_FRAMEWORK_E2E_OPENCART
 
+      - name: Verify Repository Checkout
+        run: |
+         echo "Remote Repository:"
+          git remote -v
+          
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
