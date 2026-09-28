@@ -1,0 +1,76 @@
+{
+  status: 200,
+  statusText: 'OK',
+  body: [
+    {
+      id: 8641595,
+      name: 'vikash',
+      email: 'automation1790607435998@open.com',
+      gender: 'male',
+      status: 'active'
+    },
+    {
+      id: 8641594,
+      name: 'vikashAPI',
+      email: 'automation_1790607372235@open.com',
+      gender: 'male',
+      status: 'active'
+    },
+    {
+      id: 8641592,
+      name: 'vikashAPI',
+      email: 'automation_1790606839469@open.com',
+      gender: 'male',
+      status: 'active'
+    },
+    {
+      id: 8641591,
+      name: 'vikashAPI',
+      email: 'automation_1790606784171@open.com',
+      gender: 'male',
+      status: 'active'
+    },
+    {
+      id: 8641590,
+      name: 'vikashAPI',
+      email: 'automation_1790606698279@open.com',
+      gender: 'male',
+      status: 'inactive'
+    },
+    {
+      id: 8641589,
+      name: 'vikash',
+      email: 'automation1790606693112@open.com',
+      gender: 'male',
+      status: 'active'
+    },
+    {
+      id: 8641588,
+      name: 'vikashAPI',
+      email: 'automation_1790606638608@open.com',
+      gender: 'male',
+      status: 'active'
+    },
+    {
+      id: 8641572,
+      name: 'vikashAPI',
+      email: 'automation_1790604981021@open.com',
+      gender: 'male',
+      status: 'inactive'
+    },
+    {
+      id: 8641571,
+      name: 'vikash',
+      email: 'automation1790604976145@open.com',
+      gender: 'male',
+      status: 'active'
+    },
+    {
+      id: 8641570,
+      name: 'vikashAPI',
+      email: 'automation_1790604921117@open.com',
+      gender: 'male',
+      status: 'active'
+    }
+  ]
+}

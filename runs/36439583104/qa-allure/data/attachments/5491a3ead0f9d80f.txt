@@ -1,0 +1,109 @@
+APIResponse: 200 OK
+  Date: Mon, 28 Sep 2026 14:57:16 GMT
+  Content-Type: application/json; charset=utf-8
+  Transfer-Encoding: chunked
+  Connection: keep-alive
+  Cache-Control: max-age=0, private, must-revalidate
+  content-security-policy-report-only: default-src 'self'; script-src 'self' https://pagead2.googlesyndication.com 'nonce-icJrUvIyTBQ9UVIKaNLkrg=='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https:; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://pagead2.googlesyndication.com https://ep1.adtrafficquality.google; frame-src https://googleads.g.doubleclick.net https://ep2.adtrafficquality.google https://www.google.com; object-src 'none'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'
+  etag: W/"c87d4e07ac603409b44853603d1a9b7b"
+  feature-policy: camera 'none'; gyroscope 'none'; microphone 'none'; usb 'none'; fullscreen 'self'
+  referrer-policy: strict-origin-when-cross-origin
+  strict-transport-security: max-age=63072000; includeSubDomains
+  vary: Origin
+  x-content-type-options: nosniff
+  x-frame-options: SAMEORIGIN
+  x-links-current: https://gorest.co.in/public/v2/users?page=1
+  x-links-next: https://gorest.co.in/public/v2/users?page=2
+  x-links-previous: 
+  x-pagination-limit: 10
+  x-pagination-page: 1
+  x-pagination-pages: 299
+  x-pagination-total: 2990
+  x-permitted-cross-domain-policies: none
+  x-ratelimit-limit: 300
+  x-ratelimit-remaining: 299
+  x-ratelimit-reset: 0
+  x-request-id: 838124f0-cc11-445e-ae65-3b25ffaa9cbe
+  x-runtime: 0.051497
+  x-xss-protection: 0
+  Nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
+  cf-cache-status: DYNAMIC
+  Report-To: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=%2FDmMxvlboCqzltV0OJ9o%2FUUO0PClzTfqPwJZXe2ZWBZMUiiHGt0SBHFhs3Y61pYtqcZUFcdrHQEGE57dj7xnqfYvxqEyx%2F8VGLiwCB12HuJhF4WBKOrepyozNHSD2jc%3D"}]}
+  Content-Encoding: br
+  Server: cloudflare
+  CF-RAY: a423997b5d7adc12-DFW
+  alt-svc: h3=":443"; ma=86400
+[
+  {
+    id: 8641594,
+    name: 'vikashAPI',
+    email: 'automation_1790607372235@open.com',
+    gender: 'male',
+    status: 'active'
+  },
+  {
+    id: 8641592,
+    name: 'vikashAPI',
+    email: 'automation_1790606839469@open.com',
+    gender: 'male',
+    status: 'active'
+  },
+  {
+    id: 8641591,
+    name: 'vikashAPI',
+    email: 'automation_1790606784171@open.com',
+    gender: 'male',
+    status: 'active'
+  },
+  {
+    id: 8641590,
+    name: 'vikashAPI',
+    email: 'automation_1790606698279@open.com',
+    gender: 'male',
+    status: 'inactive'
+  },
+  {
+    id: 8641589,
+    name: 'vikash',
+    email: 'automation1790606693112@open.com',
+    gender: 'male',
+    status: 'active'
+  },
+  {
+    id: 8641588,
+    name: 'vikashAPI',
+    email: 'automation_1790606638608@open.com',
+    gender: 'male',
+    status: 'active'
+  },
+  {
+    id: 8641572,
+    name: 'vikashAPI',
+    email: 'automation_1790604981021@open.com',
+    gender: 'male',
+    status: 'inactive'
+  },
+  {
+    id: 8641571,
+    name: 'vikash',
+    email: 'automation1790604976145@open.com',
+    gender: 'male',
+    status: 'active'
+  },
+  {
+    id: 8641570,
+    name: 'vikashAPI',
+    email: 'automation_1790604921117@open.com',
+    gender: 'male',
+    status: 'active'
+  },
+  {
+    id: 8641514,
+    name: 'vikashAPI',
+    email: 'automation_1790601389680@open.com',
+    gender: 'male',
+    status: 'active'
+  }
+]
+200
+OK
