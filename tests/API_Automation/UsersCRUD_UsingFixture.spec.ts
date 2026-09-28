@@ -18,7 +18,7 @@ test('GET User using Utility and Fixtures',async({apiHelper})=>{
 });
 
 //POST
-test('Create User using Utility and Fixtures',async({apiHelper})=>{
+test('@smoke Create User using Utility and Fixtures',async({apiHelper})=>{
 
       let UserData ={
 
@@ -41,7 +41,7 @@ test('Create User using Utility and Fixtures',async({apiHelper})=>{
 });
 
 //PUT
-test('Update User using Utility and Fixtures',async({apiHelper})=>{
+test('@sanity Update User using Utility and Fixtures',async({apiHelper})=>{
 
       let updatedUserData ={
 
