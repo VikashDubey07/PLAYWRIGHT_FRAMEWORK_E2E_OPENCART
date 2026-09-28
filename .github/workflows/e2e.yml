@@ -428,7 +428,7 @@ jobs:
             echo "overall=❌ SOME FAILURES" >> $GITHUB_OUTPUT
           fi
 
-          REPORT_BASE="https://github.com/VikashDubey07/PLAYWRIGHT_FRAMEWORK_E2E_OPENCART/runs/${{ github.run_id }}"
+          REPORT_BASE="https://VikashDubey07.github.io/PLAYWRIGHT_FRAMEWORK_E2E_OPENCART/runs/${{ github.run_id }}"
           echo "report_url=${REPORT_BASE}" >> $GITHUB_OUTPUT
 
       - name: Download All Reports
@@ -500,6 +500,8 @@ jobs:
           </html>
           INDEXPAGE
 
+
+
           sed -i "s|RUN_ID|${{ github.run_id }}|g" pages-deploy/runs/${{ github.run_id }}/index.html
           sed -i "s|BRANCH|${{ github.ref_name }}|g" pages-deploy/runs/${{ github.run_id }}/index.html
           sed -i "s|RUN_DATE|$(date +'%d %b %Y, %I:%M %p UTC')|g" pages-deploy/runs/${{ github.run_id }}/index.html
@@ -513,6 +515,7 @@ jobs:
           cp -r all-reports/stage-sanity-allure-report/ pages-deploy/runs/${{ github.run_id }}/stage-allure/ 2>/dev/null || true
           cp -r all-reports/prod-smoke-html-report/ pages-deploy/runs/${{ github.run_id }}/prod-html/ 2>/dev/null || true
           cp -r all-reports/prod-smoke-allure-report/ pages-deploy/runs/${{ github.run_id }}/prod-allure/ 2>/dev/null || true
+          cp pages-deploy/runs/${{ github.run_id }}/index.html/pages-deploy/index.html
 
           echo "Reports organized ✅"
           ls -la pages-deploy/runs/${{ github.run_id }}/
