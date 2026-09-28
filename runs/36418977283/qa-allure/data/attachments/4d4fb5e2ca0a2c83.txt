@@ -1,0 +1,76 @@
+{
+  status: 200,
+  statusText: 'OK',
+  body: [
+    {
+      id: 8641357,
+      name: 'vikash',
+      email: 'automation1790596921661@open.com',
+      gender: 'male',
+      status: 'active'
+    },
+    {
+      id: 8641356,
+      name: 'vikashAPI',
+      email: 'automation_1790596868870@open.com',
+      gender: 'male',
+      status: 'active'
+    },
+    {
+      id: 8641264,
+      name: 'schema test',
+      email: 'automation_1790594129038@open.com',
+      gender: 'male',
+      status: 'active'
+    },
+    {
+      id: 8641253,
+      name: 'schema test',
+      email: 'automation_1790593717072@open.com',
+      gender: 'male',
+      status: 'active'
+    },
+    {
+      id: 8641233,
+      name: 'schema test',
+      email: 'automation_1790593006337@open.com',
+      gender: 'male',
+      status: 'active'
+    },
+    {
+      id: 8641211,
+      name: 'schema test',
+      email: 'automation_1790591915371@open.com',
+      gender: 'male',
+      status: 'active'
+    },
+    {
+      id: 8641193,
+      name: 'schema test',
+      email: 'automation_1790591039397@open.com',
+      gender: 'male',
+      status: 'active'
+    },
+    {
+      id: 8641179,
+      name: 'schema test',
+      email: 'automation_1790590533836@open.com',
+      gender: 'male',
+      status: 'active'
+    },
+    {
+      id: 8640921,
+      name: 'Himadri Tandon',
+      email: 'himadri_tandon@wuckert.example',
+      gender: 'female',
+      status: 'inactive'
+    },
+    {
+      id: 8640920,
+      name: 'Chatura Somayaji',
+      email: 'somayaji_chatura@casper.example',
+      gender: 'male',
+      status: 'inactive'
+    }
+  ]
+}

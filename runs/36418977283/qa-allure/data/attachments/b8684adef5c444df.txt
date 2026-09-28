@@ -1,0 +1,5 @@
+{
+  status: 404,
+  statusText: 'Not Found',
+  body: { message: 'Resource not found' }
+}
