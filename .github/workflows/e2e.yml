@@ -76,7 +76,7 @@ jobs:
       - name: Checkout QA repo
         uses: actions/checkout@v4
         with:
-          repository: naveenanimation20/OpenCartWebAPIFramework
+          repository: VikashDubey07/PLAYWRIGHT_FRAMEWORK_E2E_OPENCART
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -159,7 +159,7 @@ jobs:
       - name: Checkout QA repo
         uses: actions/checkout@v4
         with:
-          repository: naveenanimation20/OpenCartWebAPIFramework
+          repository: VikashDubey07/PLAYWRIGHT_FRAMEWORK_E2E_OPENCART
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -241,7 +241,7 @@ jobs:
       - name: Checkout QA repo
         uses: actions/checkout@v4
         with:
-          repository: naveenanimation20/OpenCartWebAPIFramework
+          repository: VikashDubey07/PLAYWRIGHT_FRAMEWORK_E2E_OPENCART
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -325,7 +325,7 @@ jobs:
       - name: Checkout QA repo
         uses: actions/checkout@v4
         with:
-          repository: naveenanimation20/OpenCartWebAPIFramework
+          repository: VikashDubey07/PLAYWRIGHT_FRAMEWORK_E2E_OPENCART
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -423,7 +423,7 @@ jobs:
             echo "overall=❌ SOME FAILURES" >> $GITHUB_OUTPUT
           fi
 
-          REPORT_BASE="https://naveenanimation20.github.io/OpenCartWebAPIFramework/runs/${{ github.run_id }}"
+          REPORT_BASE="https://github.com/VikashDubey07/PLAYWRIGHT_FRAMEWORK_E2E_OPENCART/runs/${{ github.run_id }}"
           echo "report_url=${REPORT_BASE}" >> $GITHUB_OUTPUT
 
       - name: Download All Reports
