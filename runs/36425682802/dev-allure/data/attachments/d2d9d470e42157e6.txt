@@ -1,0 +1,12 @@
+{
+  status: 201,
+  statusText: 'Created',
+  body: {
+    id: 8641504,
+    name: 'vikashAPI',
+    email: 'automation_1790600553633@open.com',
+    gender: 'male',
+    status: 'active'
+  }
+}
+Id is :  8641504

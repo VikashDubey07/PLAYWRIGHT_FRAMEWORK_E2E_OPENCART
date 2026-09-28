@@ -1,0 +1,12 @@
+UserName : abc1@gamil.com and Password : Xyz@123
+Serach key is : macbook
+Actual Product Details are :  Map(8) {
+  'ProductHeader' => 'MacBook Pro',
+  'ProductImages' => 4,
+  'Brand' => 'Apple',
+  'Product Code' => 'Product 18',
+  'Reward Points' => '800',
+  'Availability' => 'Out Of Stock',
+  'ProductPrice' => '$2,000.00',
+  'ExTaxPrice' => '$2,000.00'
+}
