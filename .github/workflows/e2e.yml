@@ -515,7 +515,6 @@ jobs:
           cp -r all-reports/stage-sanity-allure-report/ pages-deploy/runs/${{ github.run_id }}/stage-allure/ 2>/dev/null || true
           cp -r all-reports/prod-smoke-html-report/ pages-deploy/runs/${{ github.run_id }}/prod-html/ 2>/dev/null || true
           cp -r all-reports/prod-smoke-allure-report/ pages-deploy/runs/${{ github.run_id }}/prod-allure/ 2>/dev/null || true
-          cp pages-deploy/runs/${{ github.run_id }}/index.html/pages-deploy/index.html
 
           echo "Reports organized ✅"
           ls -la pages-deploy/runs/${{ github.run_id }}/
