@@ -1,0 +1,2 @@
+UserName : abc1@gamil.com and Password : Xyz@123
+Home Psge Headers are :  [ 'My Account', 'My Orders', 'My Affiliate Account', 'Newsletter' ]

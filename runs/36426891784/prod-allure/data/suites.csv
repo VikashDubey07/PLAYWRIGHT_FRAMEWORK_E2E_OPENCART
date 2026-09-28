@@ -1,0 +1,2 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","1130","@smoke Create User using Utility and Fixtures","chromium","2026-09-28","passed","2026-09-28","Ruuning e2e GoRest Crud API","API_Automation/UsersCRUD_UsingFixture.spec.ts","",""
