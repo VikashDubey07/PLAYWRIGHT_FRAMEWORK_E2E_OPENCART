@@ -397,7 +397,7 @@ pipeline {
             //             </html>
             //         """
             //     )
-            // }
+             }
 
             // Cleanup Docker image after pipeline
             sh "docker rmi ${DOCKER_IMAGE} || true"
