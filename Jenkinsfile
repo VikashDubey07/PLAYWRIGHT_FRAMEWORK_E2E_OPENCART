@@ -69,19 +69,19 @@ pipeline {
         // ═════════════════════════════════════════════════
         // STAGE 2: BUILD DOCKER IMAGE
         // ═════════════════════════════════════════════════
-        stage('Build Docker Image') {
-            steps {
-                echo "========================================="
-                echo "  Building Playwright Docker Image"
-                echo "========================================="
-                dir('qa-tests') {
-                    git url: 'https://github.com/VikashDubey07/PLAYWRIGHT_FRAMEWORK_E2E_OPENCART.git',
-                        branch: 'main'
-                    sh "docker build -t ${DOCKER_IMAGE} ."
-                }
-                sh "docker images | grep ${DOCKER_IMAGE}"
-            }
-        }
+        // stage('Build Docker Image') {
+        //     steps {
+        //         echo "========================================="
+        //         echo "  Building Playwright Docker Image"
+        //         echo "========================================="
+        //         dir('qa-tests') {
+        //             git url: 'https://github.com/VikashDubey07/PLAYWRIGHT_FRAMEWORK_E2E_OPENCART.git',
+        //                 branch: 'main'
+        //             sh "docker build -t ${DOCKER_IMAGE} ."
+        //         }
+        //         sh "docker images | grep ${DOCKER_IMAGE}"
+        //     }
+        // }
 
         // ═════════════════════════════════════════════════
         // STAGE 3: DEPLOY DEV + SANITY
