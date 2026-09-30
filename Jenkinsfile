@@ -104,7 +104,7 @@ pipeline {
                     bat 'if exist allure-results rmdir /s /q allure-results\nif exist reports rmdir /s /q reports'
                     withCredentials([
                         usernamePassword(credentialsId: 'dev-credentials',
-                            usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD'),
+                            usernameVariable: 'USERNAME1', passwordVariable: 'PASSWORD1'),
                         string(credentialsId: 'api-token', variable: 'API_TOKEN'),
                         string(credentialsId: 'dev-base-url', variable: 'BASE_URL'),
                         string(credentialsId: 'api-base-url', variable: 'API_BASE_URL')
@@ -112,8 +112,8 @@ pipeline {
                         bat '''
     set "ENV=dev"
     set "BASE_URL=%BASE_URL%"
-    set "USERNAME=%USERNAME%"
-    set "PASSWORD=%PASSWORD%"
+    set "USERNAME1=%USERNAME1%"
+    set "PASSWORD1=%PASSWORD1%"
     set "API_BASE_URL=%API_BASE_URL%"
     set "API_TOKEN=%API_TOKEN%"
     npx playwright test --project=chromium --grep @smoke
@@ -165,7 +165,7 @@ pipeline {
                     bat 'if exist allure-results rmdir /s /q allure-results\nif exist reports rmdir /s /q reports'
                     withCredentials([
                         usernamePassword(credentialsId: 'qa-credentials',
-                            usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD'),
+                            usernameVariable: 'USERNAME1', passwordVariable: 'PASSWORD1'),
                         string(credentialsId: 'api-token', variable: 'API_TOKEN'),
                         string(credentialsId: 'qa-base-url', variable: 'BASE_URL'),
                         string(credentialsId: 'api-base-url', variable: 'API_BASE_URL')
@@ -173,8 +173,8 @@ pipeline {
                         bat '''
     set "ENV=qa"
     set "BASE_URL=%BASE_URL%"
-    set "USERNAME=%USERNAME%"
-    set "PASSWORD=%PASSWORD%"
+    set "USERNAME1=%USERNAME1%"
+    set "PASSWORD1=%PASSWORD1%"
     set "API_BASE_URL=%API_BASE_URL%"
     set "API_TOKEN=%API_TOKEN%"
     npx playwright test --project=chromium
@@ -226,7 +226,7 @@ pipeline {
                     bat 'if exist allure-results rmdir /s /q allure-results\nif exist reports rmdir /s /q reports'
                     withCredentials([
                         usernamePassword(credentialsId: 'stage-credentials',
-                            usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD'),
+                            usernameVariable: 'USERNAME1', passwordVariable: 'PASSWORD1'),
                         string(credentialsId: 'api-token', variable: 'API_TOKEN'),
                         string(credentialsId: 'stage-base-url', variable: 'BASE_URL'),
                         string(credentialsId: 'api-base-url', variable: 'API_BASE_URL')
@@ -234,8 +234,8 @@ pipeline {
                         bat '''
     set "ENV=stage"
     set "BASE_URL=%BASE_URL%"
-    set "USERNAME=%USERNAME%"
-    set "PASSWORD=%PASSWORD%"
+    set "USERNAME1=%USERNAME1%"
+    set "PASSWORD1=%PASSWORD1%"
     set "API_BASE_URL=%API_BASE_URL%"
     set "API_TOKEN=%API_TOKEN%"
     npx playwright test --project=chromium --grep @smoke
@@ -295,7 +295,7 @@ pipeline {
                     bat 'if exist allure-results rmdir /s /q allure-results\nif exist reports rmdir /s /q reports'
                     withCredentials([
                         usernamePassword(credentialsId: 'prod-credentials',
-                            usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD'),
+                            usernameVariable: 'USERNAME1', passwordVariable: 'PASSWORD1'),
                         string(credentialsId: 'api-token', variable: 'API_TOKEN'),
                         string(credentialsId: 'prod-base-url', variable: 'BASE_URL'),
                         string(credentialsId: 'api-base-url', variable: 'API_BASE_URL')
@@ -303,8 +303,8 @@ pipeline {
                         bat '''
     set "ENV=prod"
     set "BASE_URL=%BASE_URL%"
-    set "USERNAME=%USERNAME%"
-    set "PASSWORD=%PASSWORD%"
+    set "USERNAME1=%USERNAME1%"
+    set "PASSWORD1=%PASSWORD1%"
     set "API_BASE_URL=%API_BASE_URL%"
     set "API_TOKEN=%API_TOKEN%"
     npx playwright test --project=chromium --grep @smoke
