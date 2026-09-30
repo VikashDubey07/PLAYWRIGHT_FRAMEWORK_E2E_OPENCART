@@ -97,7 +97,7 @@ pipeline {
                 echo "========================================="
                 echo "  Running SANITY @smoke on DEV (Docker)"
                 echo "========================================="
-                bat 'mkdir -p reports-dev/html allure-results-dev'
+                bat 'mkdir reports-dev/html allure-results-dev'
                 withCredentials([
                     usernamePassword(credentialsId: 'dev-credentials',
                         usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD'),
@@ -123,7 +123,7 @@ pipeline {
             }
             post {
                 always {
-                    bat 'mkdir -p reports-dev/allure'
+                    bat 'mkdir reports-dev/allure'
                     bat 'npx allure generate allure-results-dev --clean -o reports-dev/allure || true'
                     publishHTML(target: [
                         reportName: 'DEV Sanity - PW HTML Report',
@@ -157,7 +157,7 @@ pipeline {
                 echo "========================================="
                 echo "  Running REGRESSION on QA (Docker)"
                 echo "========================================="
-                bat 'mkdir -p reports-qa/html allure-results-qa'
+                bat 'mkdir reports-qa/html allure-results-qa'
                 withCredentials([
                     usernamePassword(credentialsId: 'qa-credentials',
                         usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD'),
@@ -183,7 +183,7 @@ pipeline {
             }
             post {
                 always {
-                    bat 'mkdir -p reports-qa/allure'
+                    bat 'mkdir reports-qa/allure'
                     bat 'npx allure generate allure-results-qa --clean -o reports-qa/allure || true'
                     publishHTML(target: [
                         reportName: 'QA Regression - PW HTML Report',
@@ -217,7 +217,7 @@ pipeline {
                 echo "========================================="
                 echo "  Running SANITY @smoke on STAGE (Docker)"
                 echo "========================================="
-                bat 'mkdir -p reports-stage/html allure-results-stage'
+                bat 'mkdir reports-stage/html allure-results-stage'
                 withCredentials([
                     usernamePassword(credentialsId: 'stage-credentials',
                         usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD'),
@@ -243,7 +243,7 @@ pipeline {
             }
             post {
                 always {
-                    bat 'mkdir -p reports-stage/allure'
+                    bat 'mkdir reports-stage/allure'
                     bat 'npx allure generate allure-results-stage --clean -o reports-stage/allure || true'
                     publishHTML(target: [
                         reportName: 'STAGE Sanity - PW HTML Report',
@@ -285,7 +285,7 @@ pipeline {
                 echo "========================================="
                 echo "  Running SMOKE @smoke on PROD (Docker)"
                 echo "========================================="
-                bat 'mkdir -p reports-prod/html allure-results-prod'
+                bat 'mkdir reports-prod/html allure-results-prod'
                 withCredentials([
                     usernamePassword(credentialsId: 'prod-credentials',
                         usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD'),
@@ -311,7 +311,7 @@ pipeline {
             }
             post {
                 always {
-                    bat 'mkdir -p reports-prod/allure'
+                    bat 'mkdir reports-prod/allure'
                     bat 'npx allure generate allure-results-prod --clean -o reports-prod/allure || true'
                     publishHTML(target: [
                         reportName: 'PROD Smoke - PW HTML Report',
