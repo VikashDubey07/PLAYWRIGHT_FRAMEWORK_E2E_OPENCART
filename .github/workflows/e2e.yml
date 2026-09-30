@@ -1,6 +1,6 @@
 # ═══════════════════════════════════════════════════════════════
 # FILE: .github/workflows/master-pipeline.yml
-# REPO: naveenanimation20/OpenCartWebAPIFramework
+# REPO: https://github.com/VikashDubey07/PLAYWRIGHT_FRAMEWORK_E2E_OPENCART
 # DEV REPO: jglick/simple-maven-project-with-tests
 # ═══════════════════════════════════════════════════════════════
 
@@ -585,7 +585,7 @@ jobs:
                 <a class="report-link green" href="${REPORT_URL}/qa-allure/index.html">📈 QA Allure Report</a>
               </div>
               <div class="footer">
-                Naveen Automation Labs | Playwright Framework | $(date +'%d %b %Y, %I:%M %p UTC')
+                Vikash Playwright Automation | Playwright Framework | $(date +'%d %b %Y, %I:%M %p UTC')
               </div>
             </div>
           </body>
