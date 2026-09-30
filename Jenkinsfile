@@ -10,7 +10,7 @@ pipeline {
     tools {
         nodejs 'NodeJS-24'
         maven 'Maven-3.9'
-        jdk 'JDK-17'
+        jdk 'JDK-21'
         allure 'Allure'
     }
 
@@ -32,9 +32,9 @@ pipeline {
         )
     }
 
-    environment {
-        SLACK_CHANNEL = '#general'
-    }
+    // environment {
+    //     SLACK_CHANNEL = '#general'
+    // }
 
     options {
         timeout(time: 30, unit: 'MINUTES')
@@ -75,8 +75,8 @@ pipeline {
                 echo "  Installing Playwright Dependencies"
                 echo "========================================="
                 dir('qa-tests') {
-                    git url: 'https://github.com/naveenanimation20/OpenCartWebAPIFramework.git',
-                        branch: 'main'
+                    git url: 'https://github.com/VikashDubey07/PLAYWRIGHT_FRAMEWORK_E2E_OPENCART.git',
+                        branch: 'master'
                     bat 'npm ci'
                     bat 'npx playwright install chromium'
                 }
@@ -106,8 +106,6 @@ pipeline {
                         usernamePassword(credentialsId: 'dev-credentials',
                             usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD'),
                         string(credentialsId: 'api-token', variable: 'API_TOKEN'),
-                        string(credentialsId: 'oauth-client-id', variable: 'OAUTH_CLIENT_ID'),
-                        string(credentialsId: 'oauth-client-secret', variable: 'OAUTH_CLIENT_SECRET'),
                         string(credentialsId: 'dev-base-url', variable: 'BASE_URL'),
                         string(credentialsId: 'api-base-url', variable: 'API_BASE_URL')
                     ]) {
@@ -118,9 +116,6 @@ pipeline {
     set "PASSWORD=%PASSWORD%"
     set "API_BASE_URL=%API_BASE_URL%"
     set "API_TOKEN=%API_TOKEN%"
-    set "OAUTH_CLIENT_ID=%OAUTH_CLIENT_ID%"
-    set "OAUTH_CLIENT_SECRET=%OAUTH_CLIENT_SECRET%"
-    set "GRANT_TYPE=client_credentials"
     npx playwright test --project=chromium --grep @smoke
 '''
                     }
@@ -172,8 +167,6 @@ pipeline {
                         usernamePassword(credentialsId: 'qa-credentials',
                             usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD'),
                         string(credentialsId: 'api-token', variable: 'API_TOKEN'),
-                        string(credentialsId: 'oauth-client-id', variable: 'OAUTH_CLIENT_ID'),
-                        string(credentialsId: 'oauth-client-secret', variable: 'OAUTH_CLIENT_SECRET'),
                         string(credentialsId: 'qa-base-url', variable: 'BASE_URL'),
                         string(credentialsId: 'api-base-url', variable: 'API_BASE_URL')
                     ]) {
@@ -184,9 +177,6 @@ pipeline {
     set "PASSWORD=%PASSWORD%"
     set "API_BASE_URL=%API_BASE_URL%"
     set "API_TOKEN=%API_TOKEN%"
-    set "OAUTH_CLIENT_ID=%OAUTH_CLIENT_ID%"
-    set "OAUTH_CLIENT_SECRET=%OAUTH_CLIENT_SECRET%"
-    set "GRANT_TYPE=client_credentials"
     npx playwright test --project=chromium
 '''
                     }
@@ -238,8 +228,6 @@ pipeline {
                         usernamePassword(credentialsId: 'stage-credentials',
                             usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD'),
                         string(credentialsId: 'api-token', variable: 'API_TOKEN'),
-                        string(credentialsId: 'oauth-client-id', variable: 'OAUTH_CLIENT_ID'),
-                        string(credentialsId: 'oauth-client-secret', variable: 'OAUTH_CLIENT_SECRET'),
                         string(credentialsId: 'stage-base-url', variable: 'BASE_URL'),
                         string(credentialsId: 'api-base-url', variable: 'API_BASE_URL')
                     ]) {
@@ -250,9 +238,6 @@ pipeline {
     set "PASSWORD=%PASSWORD%"
     set "API_BASE_URL=%API_BASE_URL%"
     set "API_TOKEN=%API_TOKEN%"
-    set "OAUTH_CLIENT_ID=%OAUTH_CLIENT_ID%"
-    set "OAUTH_CLIENT_SECRET=%OAUTH_CLIENT_SECRET%"
-    set "GRANT_TYPE=client_credentials"
     npx playwright test --project=chromium --grep @smoke
 '''
                     }
@@ -312,8 +297,6 @@ pipeline {
                         usernamePassword(credentialsId: 'prod-credentials',
                             usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD'),
                         string(credentialsId: 'api-token', variable: 'API_TOKEN'),
-                        string(credentialsId: 'oauth-client-id', variable: 'OAUTH_CLIENT_ID'),
-                        string(credentialsId: 'oauth-client-secret', variable: 'OAUTH_CLIENT_SECRET'),
                         string(credentialsId: 'prod-base-url', variable: 'BASE_URL'),
                         string(credentialsId: 'api-base-url', variable: 'API_BASE_URL')
                     ]) {
@@ -324,9 +307,6 @@ pipeline {
     set "PASSWORD=%PASSWORD%"
     set "API_BASE_URL=%API_BASE_URL%"
     set "API_TOKEN=%API_TOKEN%"
-    set "OAUTH_CLIENT_ID=%OAUTH_CLIENT_ID%"
-    set "OAUTH_CLIENT_SECRET=%OAUTH_CLIENT_SECRET%"
-    set "GRANT_TYPE=client_credentials"
     npx playwright test --project=chromium --grep @smoke
 '''
                     }
@@ -359,80 +339,80 @@ pipeline {
     // ═════════════════════════════════════════════════════
     // POST — EMAIL + SLACK NOTIFICATIONS
     // ═════════════════════════════════════════════════════
-    post {
-        always {
-            script {
-                def buildStatus = currentBuild.currentResult
-                def statusEmoji = buildStatus == 'SUCCESS' ? '✅' : '❌'
-                def statusColor = buildStatus == 'SUCCESS' ? 'good' : 'danger'
+//     post {
+//         always {
+//             script {
+//                 def buildStatus = currentBuild.currentResult
+//                 def statusEmoji = buildStatus == 'SUCCESS' ? '✅' : '❌'
+//                 def statusColor = buildStatus == 'SUCCESS' ? 'good' : 'danger'
 
-                // Slack Notification
-                slackSend(
-                    channel: env.SLACK_CHANNEL,
-                    color: statusColor,
-                    message: """
-🎭 *Playwright CI/CD Pipeline Report*
+//                 // Slack Notification
+//                 slackSend(
+//                     channel: env.SLACK_CHANNEL,
+//                     color: statusColor,
+//                     message: """
+// 🎭 *Playwright CI/CD Pipeline Report*
 
-*Overall: ${statusEmoji} ${buildStatus}*
-*Environment:* `${params.ENVIRONMENT}`
-*Branch:* `${env.BRANCH_NAME ?: 'main'}`
-*Build:* #${env.BUILD_NUMBER}
-*Duration:* ${currentBuild.durationString.replace(' and counting', '')}
+// *Overall: ${statusEmoji} ${buildStatus}*
+// *Environment:* `${params.ENVIRONMENT}`
+// *Branch:* `${env.BRANCH_NAME ?: 'main'}`
+// *Build:* #${env.BUILD_NUMBER}
+// *Duration:* ${currentBuild.durationString.replace(' and counting', '')}
 
-📊 <${env.BUILD_URL}|View Reports in Jenkins>
-🔍 <${env.BUILD_URL}console|View Console Logs>
-                    """
-                )
+// 📊 <${env.BUILD_URL}|View Reports in Jenkins>
+// 🔍 <${env.BUILD_URL}console|View Console Logs>
+//                     """
+//                 )
 
-                // Email Notification
-                emailext(
-                    to: 'naveenanimation20@gmail.com,training@naveenautomationlabs.com',
-                    subject: "🎭 CI/CD Pipeline — ${statusEmoji} ${buildStatus} — Build #${env.BUILD_NUMBER}",
-                    mimeType: 'text/html',
-                    body: """
-                        <html>
-                        <body style="font-family: Arial, sans-serif; margin: 0; padding: 20px; background: #f5f5f5;">
-                            <div style="max-width: 700px; margin: 0 auto; background: white; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); overflow: hidden;">
-                                <div style="background: linear-gradient(135deg, #1a1a2e, #16213e); color: white; padding: 30px; text-align: center;">
-                                    <h1 style="margin: 0; font-size: 24px;">🎭 Playwright CI/CD Dashboard</h1>
-                                    <p style="margin: 8px 0 0; opacity: 0.8;">Master Pipeline Report</p>
-                                    <span style="display: inline-block; padding: 6px 16px; border-radius: 20px; font-weight: bold; font-size: 14px; margin-top: 12px; background: ${buildStatus == 'SUCCESS' ? '#28a745' : '#dc3545'}; color: white;">
-                                        ${statusEmoji} ${buildStatus}
-                                    </span>
-                                </div>
-                                <div style="padding: 24px;">
-                                    <table style="width: 100%; border-collapse: collapse;">
-                                        <tr><td style="padding: 10px; color: #666;">Environment</td><td style="padding: 10px; font-weight: bold;">${params.ENVIRONMENT}</td></tr>
-                                        <tr><td style="padding: 10px; color: #666;">Build</td><td style="padding: 10px; font-weight: bold;">#${env.BUILD_NUMBER}</td></tr>
-                                        <tr><td style="padding: 10px; color: #666;">Duration</td><td style="padding: 10px; font-weight: bold;">${currentBuild.durationString.replace(' and counting', '')}</td></tr>
-                                        <tr><td style="padding: 10px; color: #666;">Triggered by</td><td style="padding: 10px; font-weight: bold;">${currentBuild.getBuildCauses()[0]?.shortDescription ?: 'Manual'}</td></tr>
-                                    </table>
-                                </div>
-                                <div style="background: #f8f9fa; padding: 20px 24px; border-top: 1px solid #eee;">
-                                    <h3 style="margin: 0 0 12px;">📊 Reports (8 reports per build)</h3>
-                                    <p style="color: #666; font-size: 13px; margin: 0 0 12px;">Click below to open Jenkins build page → Reports in sidebar</p>
-                                    <a href="${env.BUILD_URL}" style="display: inline-block; padding: 10px 20px; background: #1a1a2e; color: white; text-decoration: none; border-radius: 6px; margin: 4px;">📁 Open Jenkins Build</a>
-                                    <a href="${env.BUILD_URL}console" style="display: inline-block; padding: 10px 20px; background: #6c757d; color: white; text-decoration: none; border-radius: 6px; margin: 4px;">🔍 Console Logs</a>
-                                </div>
-                                <div style="text-align: center; padding: 16px; color: #999; font-size: 12px; border-top: 1px solid #eee;">
-                                    Naveen Automation Labs | Playwright Framework
-                                </div>
-                            </div>
-                        </body>
-                        </html>
-                    """
-                )
-            }
-        }
-        success {
-            echo '═══════════════════════════════════════════'
-            echo '  PIPELINE: ✅ SUCCESS'
-            echo '═══════════════════════════════════════════'
-        }
-        failure {
-            echo '═══════════════════════════════════════════'
-            echo '  PIPELINE: ❌ FAILED'
-            echo '═══════════════════════════════════════════'
-        }
-    }
+//                 // Email Notification
+//                 emailext(
+//                     to: 'naveenanimation20@gmail.com,training@naveenautomationlabs.com',
+//                     subject: "🎭 CI/CD Pipeline — ${statusEmoji} ${buildStatus} — Build #${env.BUILD_NUMBER}",
+//                     mimeType: 'text/html',
+//                     body: """
+//                         <html>
+//                         <body style="font-family: Arial, sans-serif; margin: 0; padding: 20px; background: #f5f5f5;">
+//                             <div style="max-width: 700px; margin: 0 auto; background: white; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); overflow: hidden;">
+//                                 <div style="background: linear-gradient(135deg, #1a1a2e, #16213e); color: white; padding: 30px; text-align: center;">
+//                                     <h1 style="margin: 0; font-size: 24px;">🎭 Playwright CI/CD Dashboard</h1>
+//                                     <p style="margin: 8px 0 0; opacity: 0.8;">Master Pipeline Report</p>
+//                                     <span style="display: inline-block; padding: 6px 16px; border-radius: 20px; font-weight: bold; font-size: 14px; margin-top: 12px; background: ${buildStatus == 'SUCCESS' ? '#28a745' : '#dc3545'}; color: white;">
+//                                         ${statusEmoji} ${buildStatus}
+//                                     </span>
+//                                 </div>
+//                                 <div style="padding: 24px;">
+//                                     <table style="width: 100%; border-collapse: collapse;">
+//                                         <tr><td style="padding: 10px; color: #666;">Environment</td><td style="padding: 10px; font-weight: bold;">${params.ENVIRONMENT}</td></tr>
+//                                         <tr><td style="padding: 10px; color: #666;">Build</td><td style="padding: 10px; font-weight: bold;">#${env.BUILD_NUMBER}</td></tr>
+//                                         <tr><td style="padding: 10px; color: #666;">Duration</td><td style="padding: 10px; font-weight: bold;">${currentBuild.durationString.replace(' and counting', '')}</td></tr>
+//                                         <tr><td style="padding: 10px; color: #666;">Triggered by</td><td style="padding: 10px; font-weight: bold;">${currentBuild.getBuildCauses()[0]?.shortDescription ?: 'Manual'}</td></tr>
+//                                     </table>
+//                                 </div>
+//                                 <div style="background: #f8f9fa; padding: 20px 24px; border-top: 1px solid #eee;">
+//                                     <h3 style="margin: 0 0 12px;">📊 Reports (8 reports per build)</h3>
+//                                     <p style="color: #666; font-size: 13px; margin: 0 0 12px;">Click below to open Jenkins build page → Reports in sidebar</p>
+//                                     <a href="${env.BUILD_URL}" style="display: inline-block; padding: 10px 20px; background: #1a1a2e; color: white; text-decoration: none; border-radius: 6px; margin: 4px;">📁 Open Jenkins Build</a>
+//                                     <a href="${env.BUILD_URL}console" style="display: inline-block; padding: 10px 20px; background: #6c757d; color: white; text-decoration: none; border-radius: 6px; margin: 4px;">🔍 Console Logs</a>
+//                                 </div>
+//                                 <div style="text-align: center; padding: 16px; color: #999; font-size: 12px; border-top: 1px solid #eee;">
+//                                     Naveen Automation Labs | Playwright Framework
+//                                 </div>
+//                             </div>
+//                         </body>
+//                         </html>
+//                     """
+//                 )
+//             }
+//         }
+//         success {
+//             echo '═══════════════════════════════════════════'
+//             echo '  PIPELINE: ✅ SUCCESS'
+//             echo '═══════════════════════════════════════════'
+//         }
+//         failure {
+//             echo '═══════════════════════════════════════════'
+//             echo '  PIPELINE: ❌ FAILED'
+//             echo '═══════════════════════════════════════════'
+//         }
+//     }
 }
