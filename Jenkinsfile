@@ -339,30 +339,30 @@ pipeline {
     // ═════════════════════════════════════════════════════
     // POST — EMAIL + SLACK NOTIFICATIONS
     // ═════════════════════════════════════════════════════
-//     post {
-//         always {
-//             script {
-//                 def buildStatus = currentBuild.currentResult
-//                 def statusEmoji = buildStatus == 'SUCCESS' ? '✅' : '❌'
-//                 def statusColor = buildStatus == 'SUCCESS' ? 'good' : 'danger'
+    post {
+        always {
+            script {
+                def buildStatus = currentBuild.currentResult
+                def statusEmoji = buildStatus == 'SUCCESS' ? '✅' : '❌'
+                def statusColor = buildStatus == 'SUCCESS' ? 'good' : 'danger'
 
-//                 // Slack Notification
-//                 slackSend(
-//                     channel: env.SLACK_CHANNEL,
-//                     color: statusColor,
-//                     message: """
-// 🎭 *Playwright CI/CD Pipeline Report*
+                // Slack Notification
+                // slackSend(
+                //     channel: env.SLACK_CHANNEL,
+                //     color: statusColor,
+                //     message: """
+🎭 *Playwright CI/CD Pipeline Report*
 
-// *Overall: ${statusEmoji} ${buildStatus}*
-// *Environment:* `${params.ENVIRONMENT}`
-// *Branch:* `${env.BRANCH_NAME ?: 'main'}`
-// *Build:* #${env.BUILD_NUMBER}
-// *Duration:* ${currentBuild.durationString.replace(' and counting', '')}
+*Overall: ${statusEmoji} ${buildStatus}*
+*Environment:* `${params.ENVIRONMENT}`
+*Branch:* `${env.BRANCH_NAME ?: 'master'}`
+*Build:* #${env.BUILD_NUMBER}
+*Duration:* ${currentBuild.durationString.replace(' and counting', '')}
 
-// 📊 <${env.BUILD_URL}|View Reports in Jenkins>
-// 🔍 <${env.BUILD_URL}console|View Console Logs>
-//                     """
-//                 )
+📊 <${env.BUILD_URL}|View Reports in Jenkins>
+🔍 <${env.BUILD_URL}console|View Console Logs>
+                    """
+                )
 
 //                 // Email Notification
 //                 emailext(
@@ -403,7 +403,7 @@ pipeline {
 //                     """
 //                 )
 //             }
-//         }
+        }
         success {
             echo '═══════════════════════════════════════════'
             echo '  PIPELINE: ✅ SUCCESS'
@@ -415,4 +415,4 @@ pipeline {
             echo '═══════════════════════════════════════════'
         }
     }
-//}
+}
