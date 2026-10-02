@@ -33,9 +33,27 @@ export default defineConfig({
 
             ],
 
+
+/* Sharding blob Report */
+
+// reporter: process.env.CI
+//     ? [
+//       ["blob"],
+//       ["html", { outputFolder: "reports/html-report", open: "never" }],
+//       ["allure-playwright", { outputFolder: "allure-results", suiteTitle: true }],
+//       ['reporting-labs', reportingLabs]
+//     ]
+//     : [
+//       ["blob", { outputDir: "blob-report" }],
+//       ["list"],
+//       ["html", { outputFolder: "reports/html-report", open: "never" }],
+//       ["allure-playwright", { outputFolder: "allure-results", suiteTitle: true }],
+//       ['reporting-labs', reportingLabs]
+//     ],
+
+
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
-  
-  
+
   use: {
     /* Base URL to use in actions like `await page.goto('')`. */
      baseURL: process.env.BASE_URL,
